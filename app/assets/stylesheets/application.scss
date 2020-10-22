@@ -1,0 +1,40 @@
+@import "bootstrap";
+.header1 h1{
+    margin: 0px;
+    padding: 10px 50px;
+    color: white;
+    background-color: dimgray
+}
+.header1{
+    // box-shadow: 0px 10px rgba(0,0,0,0.4);
+}
+
+.header2{
+    border-top: solid;
+    border-bottom: solid;
+    padding: 10px 50px;
+    text-align: end;
+    font: 'arial black';
+}
+.header3{
+    padding: 10px 50px 0px 50px;
+    text-align: end;
+}
+.notice{
+    color: green;
+}
+.alert{
+    color: red;
+}
+
+ol {
+  color: #696969;
+  border-top: solid #696969 1px;/*上のボーダー*/
+  border-bottom: solid #696969 1px;/*下のボーダー*/
+  padding: 0.5em 0 0.5em 1.5em;
+}
+
+ol li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+}

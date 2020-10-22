@@ -1,0 +1,25 @@
+<h2><%= current_user.username %>さんのタスク</h2>
+<p>毎週月曜日に自動削除されます</p>
+<div>
+    <h3>Done</h3>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Task</th>
+                <th>Deadline</th>
+                <th>Menu</th>
+            </tr>
+        </thead>
+        <% @tasks.each do |task| %>
+            <% if task.completed? %>
+                <tr>
+                    <td><%= link_to task.title , user_task_path(task.user_id,task) %></td>
+                    <td><%= task.target_at %></td>
+                    <td>[ <%= link_to "Edit",edit_user_task_path(task.user_id,task) %> ] 
+                    [ <%= link_to "Delete", user_task_path(task.user_id,task),method: :delete, data:{ confirm: 'Are you sure?'} %> ] 
+                    </td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+</div>

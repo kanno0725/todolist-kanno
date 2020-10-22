@@ -1,0 +1,12 @@
+<h2><%= @task.title %>の詳細</h2>
+<br>
+<div>
+    <p>title:<%= @task.title %></p>
+    <p>description:<%= @task.description %></p>
+    <p>created_at:<%= @task.created_at %></p>
+    <p>deadline:<%= @task.target_at %></p>
+    <p>completed:<%= @task.completed %></p>
+    <p>completed_at:<%= @task.completed_at %></p>
+</div>
+
+<p><%= link_to '一覧に戻る', user_tasks_path %></p>

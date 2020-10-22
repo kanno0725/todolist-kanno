@@ -1,0 +1,30 @@
+<h2><%= current_user.username %>さんのタスク</h2>
+<p><%= link_to 'タスクの追加', new_user_task_path %></p>
+<div>
+    <h3>ToDo</h3>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Task</th>
+                <th>Deadline</th>
+                <th>Menu</th>
+            </tr>
+        </thead>
+        <% @tasks.each do |task| %>
+            <% if !task.completed? %>
+                <tr>
+                    <td><%= link_to task.title , user_task_path(task.user_id,task) %></td>
+                    <td><%= task.target_at %></td>
+                    <td>[ <%= link_to "Edit",edit_user_task_path(task.user_id,task) %> ] 
+                    [ <%= link_to "Done", done_path(task.user_id,task),method: :post %> ] 
+                    [ <%= link_to "Delete", user_task_path(task.user_id,task),method: :delete, data:{ confirm: 'Are you sure?'} %> ] 
+                    </td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+</div>
+<br>
+<p>今週の完了タスク</p>
+<%= column_chart Task.group_by_day_of_week(:completed_at, format: "%a").where(user_id: current_user.id).count %>
+<br>

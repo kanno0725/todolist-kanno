@@ -1,0 +1,15 @@
+<%= form_with local:true do |f| %>
+<div class="form-group">
+  <p><%= f.label :title %>:</p>
+  <%= f.text_field :title, size: 50, autofocus: true,class: "form-controll" %>
+</div>
+<div class="form-group">
+  <p><%= f.label :description %>:</p>
+  <%= f.text_area :description, size: 50, autofocus: true,class: "form-controll" %>
+</div>
+<div class="form-group">
+  <p><%= f.label :target_at, autofocus: true %>:</p>
+  <%= f.text_field :target_at,class: "form-controll" %>
+</div>
+  <%= f.submit 'Save', class: "btn-primary" %>
+<% end %>
